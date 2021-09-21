@@ -3,47 +3,66 @@
              x:Class="MauiAudioRecorder.MainPage"
              BackgroundColor="{DynamicResource SecondaryColor}">
 
-    <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
-        <Grid RowSpacing="25" RowDefinitions="Auto,Auto,Auto,Auto,*">
+    <ScrollView Padding="{OnPlatform iOS='30,60,30,30', Android='30,60,30,30', Default='30'}">
+        <Grid RowSpacing="25" 
+              RowDefinitions="Auto,Auto,Auto,Auto,*">
 
             <Label 
-                Text="Hello, World!"
+                Text="MAUI Audio Recorder"
                 Grid.Row="0"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="32"
                 HorizontalOptions="Center" />
 
             <Label 
-                Text="Welcome to .NET Multi-platform App UI"
+                Text="Welcome to .NET Multi-platform App UI Audio Recorder"
                 Grid.Row="1"
                 SemanticProperties.HeadingLevel="Level1"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I"
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Label 
-                Text="Current count: 0"
-                Grid.Row="2"
-                FontSize="18"
+            <Button 
+                Text="Start Recording"
                 FontAttributes="Bold"
-                x:Name="CounterLabel"
-                HorizontalOptions="Center" />
+                Grid.Row="2"
+                Margin="0 0 0 10"
+                Clicked="OnRecordClicked"
+                x:Name="RecordButton"
+                HorizontalOptions="Start" />
 
             <Button 
-                Text="Click me"
+                Text="Share"
                 FontAttributes="Bold"
-                Grid.Row="3"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
+                Grid.Row="2"
+                Margin="0 0 0 25"
+                Clicked="OnShareButtonClicked"
+                x:Name="ShareButton"
                 HorizontalOptions="Center" />
+            
+            <Button 
+                Text="Play"
+                FontAttributes="Bold"
+                Grid.Row="2"
+                Margin="0 45 0 0"
+                Clicked="OnPlayButtonClicked"
+                x:Name="PlayButton"
+                HorizontalOptions="End" />
 
-            <Image Grid.Row="4"
+            <Label 
+                Text="Waiting for recording"
+                Grid.Row="3"
+                FontSize="18"
+                x:Name="Progress"
+                HorizontalOptions="Start" />
+
+            <Image Grid.Row="6"
                 Source="dotnet_bot.png"
                 SemanticProperties.Description="Cute dot net bot waving hi to you!"
                 WidthRequest="250"
                 HeightRequest="310"
                 HorizontalOptions="Center" />
-
+            
         </Grid>
     </ScrollView>
 </ContentPage>
